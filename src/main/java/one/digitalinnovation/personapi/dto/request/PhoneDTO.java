@@ -1,5 +1,6 @@
 package one.digitalinnovation.personapi.dto.request;
 
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,11 +18,14 @@ import javax.validation.constraints.Size;
 @AllArgsConstructor
 public class PhoneDTO {
 
+    @ApiModelProperty(value = "Código do Telefone")
     private Long id;
 
+    @ApiModelProperty(value = "Tipo Telefone 'Home', 'Mobile' ou 'Commercial'")
     @Enumerated(EnumType.STRING)
     private PhoneType type;
 
+    @ApiModelProperty(value = "Numero de Telefone '(XXX)XXXXXXXX'")
     @NotEmpty
     @Size(min = 13, max = 14)
     private String number;
